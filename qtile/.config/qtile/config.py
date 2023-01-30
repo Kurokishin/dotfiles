@@ -1,7 +1,7 @@
 # Imports
 from typing import List  # noqa: F401
 from libqtile import bar, layout, widget, extension
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile.dgroups import simple_key_binder
@@ -104,7 +104,12 @@ keys = [
     Key([mod, "control"], "y", lazy.spawn("alacritty -e ytfzf -s"), desc="Spawn youtube on the terminal"),
     Key([mod, "control"], "s", lazy.spawn("flameshot gui"), desc="Take screenshot of the selected area"),
 	Key([mod], "z", lazy.hide_show_bar(), desc="Toggle the bar"),
-    Key([mod, "control"], "F1", lazy.spawn("redshift -P -O 6500"), desc=""),
+
+    # Control blue light 
+    KeyChord([mod, "control"], "b", [
+        Key([], "d", lazy.spawn("redshift -P -O 6500"), desc="Average blue light amount"),
+        Key([], "n", lazy.spawn("redshift -P -O 4000"), desc="Reduced blue light")
+    ]),
 
     #dmenu integration
     Key([mod], "d", lazy.run_extension(extension.DmenuRun(
