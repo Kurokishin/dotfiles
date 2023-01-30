@@ -149,18 +149,19 @@ groups = [
 for i in groups:
     keys.extend(
         [
-            # mod1 + letter of group = switch to group
+            # mod4 + letter of group = switch to group
             Key(
-                [mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {i.name}",
+                [mod], i.name, lazy.group[i.name].toscreen(), desc=f"Switch to group {i.name}",
             ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            # Key(
-            #     [mod, "control"], i.name, lazy.window.togroup(i.name, switch_group=False), desc="Switch to & move focused window to group {i.name}",
-            # ),
-            # Or, use below if you prefer not to switch to that group.
-            # mod1 + shift + letter of group = move focused window to group
+
+            # mod4 + control + letter of group = switch to & move focused window to group
             Key(
-                [mod, "shift"], i.name, lazy.window.togroup(i.name), desc="move focused window to group {i.name}",
+                [mod, "control"], i.name, lazy.window.togroup(i.name, switch_group=True), desc=f"Switch to & move focused window to group {i.name}",
+            ),
+
+            # mod4 + shift + letter of group = move focused window to group
+            Key(
+                [mod, "shift"], i.name, lazy.window.togroup(i.name), desc=f"move focused window to group {i.name}",
             ),
         ]
     )
