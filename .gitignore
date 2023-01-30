@@ -1,3 +1,6 @@
 __pycache__/
 scripts/.local/bin/*
 !scripts/.local/bin/*.sh
+
+# Vim
+.netrwhist
