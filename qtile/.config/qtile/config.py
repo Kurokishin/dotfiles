@@ -210,6 +210,9 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
+        wallpaper = '~/Pictures/wallpapers/japanese_corner.png',
+        wallpaper_mode = 'fill',
+
         top=bar.Bar(
             [
                 #widget.CurrentLayout(),
@@ -260,12 +263,6 @@ screens = [
 
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", black, "ff00ff", black]  # Borders are magenta
-
-        # Set static wallpaper
-        wallpaper = '~/Pictures/wallpapers/japanese_corner.png',
-
-        # Set wallpaper mode(fill or stretch)
-        wallpaper_mode = 'fill'
     ),
 ]
 
