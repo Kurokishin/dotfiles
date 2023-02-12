@@ -108,7 +108,7 @@ keys = [
     # Control blue light 
     KeyChord([mod, "control"], "b", [
         Key([], "d", lazy.spawn("redshift -P -O 6500"), desc="Average blue light amount"),
-        Key([], "n", lazy.spawn("redshift -P -O 4000"), desc="Reduced blue light")
+        Key([], "n", lazy.spawn("redshift -P -O 3000"), desc="Reduced blue light")
     ]),
 
     #dmenu integration
