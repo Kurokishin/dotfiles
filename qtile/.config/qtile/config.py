@@ -116,9 +116,9 @@ keys = [
         dmenu_prompt=">",
         font="JetBrains Mono",
         fontsize=12,
-        foreground=colors[3],
+        foreground=colors[1],
         selected_foreground=black,
-        selected_background=colors[3],
+        selected_background=colors[1],
     ))),    
 
     Key([mod, "control"], "x", lazy.run_extension(extension.CommandSet(
@@ -129,7 +129,7 @@ keys = [
             'shutdown': 'systemctl poweroff',
         },
         selected_foreground=black,
-        selected_background=colors[3],
+        selected_background=colors[1],
     ))),
 ]
 
@@ -170,7 +170,7 @@ layouts = [
     layout.Columns(
         border_focus=colors[4],
         border_normal=colors[0],
-        border_focus_stack=colors[6],
+        border_focus_stack=colors[1],
         border_normal_stack=gray,
         border_width=2,
         grow_amount=4,
@@ -204,13 +204,13 @@ widget_defaults = dict(
     font="JetBrains Mono",
     fontsize=13,
     padding=3,
-    foreground=colors[3],
+    foreground=colors[1],
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = '~/Pictures/wallpapers/japanese_corner.png',
+        wallpaper = '~/Pictures/wallpapers/lain.jpg',
         wallpaper_mode = 'fill',
 
         top=bar.Bar(
@@ -220,8 +220,8 @@ screens = [
                 widget.GroupBox(
                     highlight_method='block',
                     block_highlight_text_color=black,
-                    this_current_screen_border=colors[3],
-                    active=colors[3],
+                    this_current_screen_border=colors[1],
+                    active=colors[1],
                     inactive=gray,
                     rounded=False,
                     disable_drag=True
@@ -229,15 +229,15 @@ screens = [
                 #widget.Prompt(),
                 widget.WindowName(
                     foreground=black,
-                    background=colors[3],
+                    background=colors[1],
                 ),
                 widget.CPU(
-                    format=format_icon('') + ' {load_percent}% |',
+                    format=format_icon(' ') + ' {load_percent}% |',
                 ),
                 widget.ThermalSensor(
                     tag_sensor='Tctl',
                     fmt = format_icon('') + ' {} |',
-                    foreground=colors[3],
+                    foreground=colors[1],
                 ),
                 widget.Volume(
                     fmt=format_icon('墳') + ' {} |',
