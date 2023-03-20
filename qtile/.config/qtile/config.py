@@ -102,7 +102,7 @@ keys = [
 
     # Custom keybindings
     Key([mod, "control"], "y", lazy.spawn("alacritty -e ytfzf -s"), desc="Spawn youtube on the terminal"),
-    Key([mod, "control"], "s", lazy.spawn("flameshot gui"), desc="Take screenshot of the selected area"),
+    Key([], "Print", lazy.spawn("flameshot gui"), desc="Take screenshot of the selected area"),
 	Key([mod], "z", lazy.hide_show_bar(), desc="Toggle the bar"),
 
     # Control blue light 
@@ -280,7 +280,7 @@ follow_mouse_focus = False
 bring_front_click = "floating_only" 
 cursor_warp = False
 floating_layout = layout.Floating(
-    border_focus=colors[1],
+    border_focus=purple,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
