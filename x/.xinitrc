@@ -53,6 +53,7 @@ picom &
 numlockx &
 unclutter &
 dunst &
+udiskie &
 exec nm-applet &
 wal -R
 exec qtile start
