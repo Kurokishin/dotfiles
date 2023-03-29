@@ -13,6 +13,7 @@ export LESS_TERMCAP_se=$'\e[0m'
 #export LESS_TERMCAP_so=$'\e[1;31m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
+export PATH="$PATH:/home/rafael/.local/bin"
 
 # Get word definition
 function def() {
