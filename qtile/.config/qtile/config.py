@@ -245,10 +245,10 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.Systray(),
                 widget.Clock(
                         format='   %m-%d-%Y %a  %I:%M %p',
                 ),
+                widget.Systray(),
             ],
             # Bar height
             20,
