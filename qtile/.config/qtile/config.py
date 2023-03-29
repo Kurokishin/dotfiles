@@ -246,7 +246,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Clock(
-                        format='   %m-%d-%Y %a  %I:%M %p',
+                        format='  %m-%d-%Y %a  %I:%M %p',
                 ),
                 widget.Systray(),
             ],
