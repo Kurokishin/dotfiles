@@ -210,7 +210,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = '~/Pictures/wallpapers/lain.jpg',
+        wallpaper = '~/Pictures/wallpapers/computer_guy.jpg',
         wallpaper_mode = 'fill',
 
         top=bar.Bar(
