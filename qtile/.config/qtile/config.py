@@ -229,18 +229,18 @@ screens = [
                 #widget.Prompt(),
                 widget.WindowName(
                     foreground=black,
-                    background=colors[1],
+                    background=None,
                 ),
                 widget.CPU(
-                    format=format_icon(' ') + ' {load_percent}% |',
+                    format=format_icon(' ') + ' {load_percent}% ',
                 ),
                 widget.ThermalSensor(
                     tag_sensor='Tctl',
-                    fmt = format_icon('') + ' {} |',
+                    fmt = format_icon('') + ' {} ',
                     foreground=colors[1],
                 ),
                 widget.Volume(
-                    fmt=format_icon('墳') + ' {} |',
+                    fmt=format_icon('墳') + ' {} ',
                     mouse_callbacks={'Button1': open_pavu}
                 ),
                 widget.Chord(
@@ -251,9 +251,10 @@ screens = [
                 ),
                 # widget.TextBox("", name="default"),
                 # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                widget.Systray(),
+                widget.Systray(
+                ),
                 widget.Clock(
-                        format='|  %m-%d-%Y %a |  %I:%M %p',
+                        format='   %m-%d-%Y %a  %I:%M %p',
                 ),
                 # widget.QuickExit(),
             ],
