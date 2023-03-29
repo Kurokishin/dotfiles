@@ -205,6 +205,7 @@ widget_defaults = dict(
     fontsize=13,
     padding=3,
     foreground=colors[1],
+    background="#181825"
 )
 extension_defaults = widget_defaults.copy()
 
@@ -215,7 +216,6 @@ screens = [
 
         top=bar.Bar(
             [
-                #widget.CurrentLayout(),
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(
                     highlight_method='block',
@@ -226,11 +226,7 @@ screens = [
                     rounded=False,
                     disable_drag=True
                 ),
-                #widget.Prompt(),
-                widget.WindowName(
-                    foreground=black,
-                    background=None,
-                ),
+                widget.Spacer(),
                 widget.CPU(
                     format=format_icon(' ') + ' {load_percent}% ',
                 ),
@@ -249,14 +245,10 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                # widget.TextBox("", name="default"),
-                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                widget.Systray(
-                ),
+                widget.Systray(),
                 widget.Clock(
                         format='   %m-%d-%Y %a  %I:%M %p',
                 ),
-                # widget.QuickExit(),
             ],
             # Bar height
             20,
