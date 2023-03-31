@@ -1,4 +1,5 @@
 # Imports
+import os
 from typing import List  # noqa: F401
 from libqtile import bar, layout, widget, extension
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
@@ -30,6 +31,35 @@ black = "#000000"
 gray = "#505050"
 pink = "#ffc0cb"
 purple = "#f3b9ff"
+
+catppuccin_mocha = {
+        "rosewater": "#f5e0dc",
+        "flamingo": "#f2cdcd",
+        "pink": "#f5c2e7",
+        "mauve": "#cba6f7",
+        "red": "#f38ba8",
+        "maroon": "#eba0ac",
+        "peach": "#fab387",
+        "yellow": "#f9e2af",
+        "green": "#a6e3a1",
+        "teal": "#94e2d5",
+        "sky": "#89dceb",
+        "sapphire": "#74c7ec",
+        "blue": "#89b4fa",
+        "lavender": "#b4befe",
+        "text": "#cdd6f4",
+        "subtext1": "#bac2de",
+        "subtext0": "#a6adc8",
+        "overlay2": "#9399b2",
+        "overlay1": "#7f849c",
+        "overlay0": "#6c7086",
+        "surface2": "#585b70",
+        "surface1": "#45475a",
+        "surface0": "#313244",
+        "base": "#1e1e2e",
+        "mantle": "#181825",
+        "crust": "#11111b",
+}
 
 keys = [
     # Switch between monitors
@@ -201,11 +231,13 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="JetBrains Mono",
-    fontsize=13,
+    font="Hack Nerd Font Bold",
+    fontsize=12,
     padding=3,
-    foreground=colors[1],
-    background="#181825"
+    #foreground="#abb2bf",
+    #background="#181825"
+    foreground=catppuccin_mocha["text"],
+    background=catppuccin_mocha["crust"],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -216,27 +248,31 @@ screens = [
 
         top=bar.Bar(
             [
-                widget.CurrentLayoutIcon(),
+                widget.CurrentLayoutIcon(
+                    custom_icon_paths=[os.path.expanduser('~/.config/qtile/icons')]
+                ),
                 widget.GroupBox(
-                    highlight_method='block',
-                    block_highlight_text_color=black,
-                    this_current_screen_border=colors[1],
-                    active=colors[1],
-                    inactive=gray,
-                    rounded=False,
-                    disable_drag=True
+                    highlight_method='line',
+                    highlight_color=catppuccin_mocha["base"],
+                    this_current_screen_border=catppuccin_mocha["lavender"],
+                    active=catppuccin_mocha["text"],
+                    inactive=catppuccin_mocha["overlay0"],
+                    disable_drag=True,
+                    hide_unused=True
                 ),
                 widget.Spacer(),
                 widget.CPU(
+                    foreground=catppuccin_mocha["mauve"],
                     format=format_icon(' ') + ' {load_percent}% ',
                 ),
                 widget.ThermalSensor(
+                    foreground=catppuccin_mocha["red"],
                     tag_sensor='Tctl',
                     fmt = format_icon('') + ' {} ',
-                    foreground=colors[1],
                 ),
                 widget.Volume(
-                    fmt=format_icon('墳') + ' {} ',
+                    foreground=catppuccin_mocha["green"],
+                    fmt=format_icon('墳') + ' {}',
                     mouse_callbacks={'Button1': open_pavu}
                 ),
                 widget.Chord(
@@ -246,6 +282,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Clock(
+                        foreground=catppuccin_mocha["pink"],
                         format='  %m-%d-%Y %a  %I:%M %p',
                 ),
                 widget.Systray(),
