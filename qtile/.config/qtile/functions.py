@@ -1,4 +1,7 @@
 from libqtile.lazy import lazy
+from libqtile.utils import guess_terminal
+
+terminal = guess_terminal()
 
 @lazy.function
 def move_window(qtile, direction, x_step=32, y_step=32):
@@ -43,6 +46,10 @@ def toggle_floating(qtile, center=False, resolution=(1920, 1080), scale=0.8):
 @lazy.function
 def open_pavu(qtile):
     qtile.cmd_spawn("pavucontrol")
+
+@lazy.function
+def open_htop(qtile):
+    qtile.cmd_spawn(terminal + " -e htop")
 
 def format_icon(icon):
     return '<span font="Font Awesome 6 Free Regular">{}</span>'.format(icon)
