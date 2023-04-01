@@ -32,32 +32,32 @@ pink = "#ffc0cb"
 purple = "#f3b9ff"
 
 catppuccin_mocha = {
-        "rosewater": "#f5e0dc",
-        "flamingo": "#f2cdcd",
-        "pink": "#f5c2e7",
-        "mauve": "#cba6f7",
-        "red": "#f38ba8",
-        "maroon": "#eba0ac",
-        "peach": "#fab387",
-        "yellow": "#f9e2af",
-        "green": "#a6e3a1",
-        "teal": "#94e2d5",
-        "sky": "#89dceb",
-        "sapphire": "#74c7ec",
-        "blue": "#89b4fa",
-        "lavender": "#b4befe",
-        "text": "#cdd6f4",
-        "subtext1": "#bac2de",
-        "subtext0": "#a6adc8",
-        "overlay2": "#9399b2",
-        "overlay1": "#7f849c",
-        "overlay0": "#6c7086",
-        "surface2": "#585b70",
-        "surface1": "#45475a",
-        "surface0": "#313244",
-        "base": "#1e1e2e",
-        "mantle": "#181825",
-        "crust": "#11111b",
+    "rosewater": "#f5e0dc",
+    "flamingo": "#f2cdcd",
+    "pink": "#f5c2e7",
+    "mauve": "#cba6f7",
+    "red": "#f38ba8",
+    "maroon": "#eba0ac",
+    "peach": "#fab387",
+    "yellow": "#f9e2af",
+    "green": "#a6e3a1",
+    "teal": "#94e2d5",
+    "sky": "#89dceb",
+    "sapphire": "#74c7ec",
+    "blue": "#89b4fa",
+    "lavender": "#b4befe",
+    "text": "#cdd6f4",
+    "subtext1": "#bac2de",
+    "subtext0": "#a6adc8",
+    "overlay2": "#9399b2",
+    "overlay1": "#7f849c",
+    "overlay0": "#6c7086",
+    "surface2": "#585b70",
+    "surface1": "#45475a",
+    "surface0": "#313244",
+    "base": "#1e1e2e",
+    "mantle": "#181825",
+    "crust": "#11111b",
 }
 
 keys = [
@@ -195,17 +195,19 @@ for i in groups:
         ]
     )
 
+layout_theme = {
+    "border_focus":colors[4],
+    "border_normal":colors[0],
+    "border_focus_stack":colors[1],
+    "border_normal_stack":gray,
+    "border_width":2,
+    "grow_amount":4,
+    "border_on_single":True,
+    "insert_position":1
+}
+
 layouts = [                     
-    layout.Columns(
-        border_focus=colors[4],
-        border_normal=colors[0],
-        border_focus_stack=colors[1],
-        border_normal_stack=gray,
-        border_width=2,
-        grow_amount=4,
-        border_on_single=True,
-        insert_position=1
-    ),
+    layout.Columns(**layout_theme),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
 #     layout.Stack(num_stacks=2),
