@@ -10,8 +10,7 @@ from functions import *
 
 # Apps
 mod = "mod4"
-#terminal = guess_terminal()
-terminal = "alacritty" 
+terminal = guess_terminal()
 browser = "librewolf"
 
 # Pywal
@@ -233,18 +232,16 @@ layouts = [
 widget_defaults = dict(
     font="Hack Nerd Font Bold",
     fontsize=12,
-    padding=3,
-    #foreground="#abb2bf",
-    #background="#181825"
+    padding=6,
     foreground=catppuccin_mocha["text"],
     background=catppuccin_mocha["crust"],
 )
 extension_defaults = widget_defaults.copy()
 
+clock = widget.Clock()
 screens = [
     Screen(
         wallpaper = '~/Pictures/wallpapers/computer_guy.jpg',
-        wallpaper_mode = 'fill',
 
         top=bar.Bar(
             [
@@ -260,39 +257,38 @@ screens = [
                     disable_drag=True,
                     hide_unused=True
                 ),
+                widget.Spacer(length=bar.STRETCH),
+                widget.Clock(
+                        foreground=catppuccin_mocha["peach"],
+                        format=' %I:%M %p'
+                ),
                 widget.Spacer(),
                 widget.CPU(
                     foreground=catppuccin_mocha["mauve"],
-                    format=format_icon(' ') + ' {load_percent}% ',
+                    format=format_icon('') + ' {load_percent}%',
+                    mouse_callbacks={'Button1': open_htop}
                 ),
                 widget.ThermalSensor(
                     foreground=catppuccin_mocha["red"],
                     tag_sensor='Tctl',
-                    fmt = format_icon('') + ' {} ',
+                    fmt = format_icon('') + ' {}'
                 ),
                 widget.Volume(
                     foreground=catppuccin_mocha["green"],
                     fmt=format_icon('墳') + ' {}',
                     mouse_callbacks={'Button1': open_pavu}
                 ),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("ff0000", "ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
                 widget.Clock(
                         foreground=catppuccin_mocha["pink"],
-                        format='  %m-%d-%Y %a  %I:%M %p',
+                        format=' %m-%d-%Y %a',
                 ),
-                widget.Systray(),
+                widget.Systray(
+                    padding=3
+                ),
             ],
             # Bar height
             20,
             ),
-
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", black, "ff00ff", black]  # Borders are magenta
     ),
 ]
 
