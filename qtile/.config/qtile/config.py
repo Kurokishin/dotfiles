@@ -306,7 +306,7 @@ follow_mouse_focus = False
 bring_front_click = "floating_only" 
 cursor_warp = False
 floating_layout = layout.Floating(
-    border_focus=purple,
+    border_focus=catppuccin_mocha["rosewater"],
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
