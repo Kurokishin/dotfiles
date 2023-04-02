@@ -31,7 +31,7 @@ black = "#000000"
 gray = "#505050"
 pink = "#ffc0cb"
 purple = "#f3b9ff"
-catppuccin_mocha = color_palette.catppuccin
+catppuccin_mocha = catppuccin
 
 keys = [
     # Switch between monitors
@@ -169,10 +169,10 @@ for i in groups:
     )
 
 layout_theme = {
-    "border_focus":colors[4],
-    "border_normal":colors[0],
-    "border_focus_stack":colors[1],
-    "border_normal_stack":gray,
+    "border_focus": catppuccin["lavender"],
+    "border_normal": catppuccin["base"],
+    "border_focus_stack":catppuccin["mauve"],
+    "border_normal_stack":catppuccin["surface1"],
     "border_width":2,
     "grow_amount":4,
     "border_on_single":True,
