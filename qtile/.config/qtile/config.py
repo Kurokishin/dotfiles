@@ -15,15 +15,15 @@ terminal = guess_terminal()
 browser = "librewolf"
 
 # Pywal
-colors = []
-cache='/home/rafael/.cache/wal/colors'
-def load_colors(cache):
-    with open(cache, 'r') as file:
-        for i in range(8):
-            colors.append(file.readline().strip())
-    colors.append('#ffffff')
-    lazy.reload()
-load_colors(cache)
+# colors = []
+# cache='/home/rafael/.cache/wal/colors'
+# def load_colors(cache):
+#     with open(cache, 'r') as file:
+#         for i in range(8):
+#             colors.append(file.readline().strip())
+#     colors.append('#ffffff')
+#     lazy.reload()
+# load_colors(cache)
 
 # Colors
 white = "#ffffff"
@@ -221,7 +221,8 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(
-                    custom_icon_paths=[os.path.expanduser('~/.config/qtile/icons')]
+                    custom_icon_paths=[os.path.expanduser('~/.config/qtile/icons')],
+                    scale=0.7
                 ),
                 widget.GroupBox(
                     highlight_method='line',
