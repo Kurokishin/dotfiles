@@ -140,7 +140,7 @@ groups = [
     Group("1", label=""),
     Group("2", label="II"),
     Group("3", label="III"),
-    Group("4", label="IV"),
+    Group("4", label="IV", matches=[Match(wm_class=["keepassxc"])]),
     Group("5", label="", matches=[Match(wm_class=["microsoft teams - preview"])]),
     Group("6", label="VI"),
     Group("7", label="VII"),
