@@ -186,16 +186,7 @@ layouts = [
 #     layout.Stack(num_stacks=2),
 #     layout.Bsp(),
 #     layout.Matrix(),
-#    layout.MonadTall(
-#        border_focus=white,
-#        border_normal=gray,
-#        border_focus_stack=purple,
-#        border_normal_stack="#614a66",
-#        border_width=2,
-#        grow_amount=4,
-#        border_on_single=True,
-#        insert_position=1
-#    ),
+#    layout.MonadTall(**layout_theme),
 #     layout.MonadWide(),
 #     layout.RatioTile(),
 #     layout.Tile(),
@@ -256,7 +247,7 @@ screens = [
                 ),
                 widget.Clock(
                         foreground=catppuccin_mocha["pink"],
-                        format=' %m-%d-%Y %a',
+                        format=' %a, %b %d',
                 ),
                 widget.Systray(
                     padding=3
