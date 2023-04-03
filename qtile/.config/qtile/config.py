@@ -31,7 +31,7 @@ black = "#000000"
 gray = "#505050"
 pink = "#ffc0cb"
 purple = "#f3b9ff"
-catppuccin_mocha = catppuccin
+catppuccin_mocha = color_palette.catppuccin
 
 keys = [
     # Switch between monitors
@@ -118,9 +118,10 @@ keys = [
         dmenu_prompt=">",
         font="JetBrains Mono",
         fontsize=12,
-        foreground=colors[1],
-        selected_foreground=black,
-        selected_background=colors[1],
+        foreground=catppuccin_mocha["mauve"],
+        background=catppuccin_mocha["crust"],
+        selected_foreground=catppuccin_mocha["crust"],
+        selected_background=catppuccin_mocha["lavender"],
     ))),    
 
     Key([mod, "control"], "x", lazy.run_extension(extension.CommandSet(
@@ -130,8 +131,10 @@ keys = [
             'reboot': 'systemctl reboot',
             'shutdown': 'systemctl poweroff',
         },
-        selected_foreground=black,
-        selected_background=colors[1],
+        foreground=catppuccin_mocha["mauve"],
+        background=catppuccin_mocha["crust"],
+        selected_foreground=catppuccin_mocha["crust"],
+        selected_background=catppuccin_mocha["lavender"],
     ))),
 ]
 
@@ -169,10 +172,10 @@ for i in groups:
     )
 
 layout_theme = {
-    "border_focus": catppuccin["lavender"],
-    "border_normal": catppuccin["base"],
-    "border_focus_stack":catppuccin["mauve"],
-    "border_normal_stack":catppuccin["surface1"],
+    "border_focus": catppuccin_mocha["lavender"],
+    "border_normal": catppuccin_mocha["base"],
+    "border_focus_stack":catppuccin_mocha["mauve"],
+    "border_normal_stack":catppuccin_mocha["surface1"],
     "border_width":2,
     "grow_amount":4,
     "border_on_single":True,
