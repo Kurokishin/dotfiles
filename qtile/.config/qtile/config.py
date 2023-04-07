@@ -112,30 +112,9 @@ keys = [
         Key([], "d", lazy.spawn("redshift -P -O 6500"), desc="Average blue light amount"),
         Key([], "n", lazy.spawn("redshift -P -O 3000"), desc="Reduced blue light")
     ]),
-
-    #dmenu integration
-    Key([mod], "d", lazy.run_extension(extension.DmenuRun(
-        dmenu_prompt=">",
-        font="JetBrains Mono",
-        fontsize=12,
-        foreground=catppuccin_mocha["mauve"],
-        background=catppuccin_mocha["crust"],
-        selected_foreground=catppuccin_mocha["crust"],
-        selected_background=catppuccin_mocha["lavender"],
-    ))),    
-
-    Key([mod, "control"], "x", lazy.run_extension(extension.CommandSet(
-        commands= {
-            'suspend': 'systemctl suspend',
-            'hibernate' : 'systemctl hibernate',
-            'reboot': 'systemctl reboot',
-            'shutdown': 'systemctl poweroff',
-        },
-        foreground=catppuccin_mocha["mauve"],
-        background=catppuccin_mocha["crust"],
-        selected_foreground=catppuccin_mocha["crust"],
-        selected_background=catppuccin_mocha["lavender"],
-    ))),
+    
+    # rofi launcher
+    Key([mod], "d", lazy.spawn("rofi -show drun"))
 ]
 
 #groups = [Group(i) for i in "123456789"]
