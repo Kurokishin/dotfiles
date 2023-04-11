@@ -92,7 +92,7 @@ keys = [
     # Audio control (run 'xev' to know the name of a key)
     Key([mod, "control"], "KP_Add", lazy.spawn("amixer -- sset Master 5%+"), desc="Increase the volume"),
     Key([mod, "control"], "KP_Subtract", lazy.spawn("amixer -- sset Master 5%-"), desc="Decrease the volume"),
-    Key([mod, "control"], "KP_Multiply", lazy.spawn("amixer -- sset Master 10%"), desc="Set the volume to a value"),
+    Key([mod, "control"], "KP_Multiply", lazy.spawn("amixer -- sset Master 30%"), desc="Set a default value for the volume"),
 
     # Multimedia keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -- sset Master 5%+"), desc="Increase the volume"),
