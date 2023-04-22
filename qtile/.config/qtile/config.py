@@ -113,8 +113,10 @@ keys = [
         Key([], "n", lazy.spawn("redshift -P -O 3000"), desc="Reduced blue light")
     ]),
     
-    # rofi launcher
-    Key([mod], "d", lazy.spawn("rofi -show drun"))
+    # Rofi
+    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Show applications"),
+    Key([mod], "p", lazy.spawn("rofi -show window"), desc="Show running apps"),
+    Key([mod, "control"], "x", lazy.spawn("/home/rafael/.local/bin/powermenu.sh"))
 ]
 
 #groups = [Group(i) for i in "123456789"]
@@ -189,7 +191,7 @@ extension_defaults = widget_defaults.copy()
 clock = widget.Clock()
 screens = [
     Screen(
-        wallpaper = '~/Pictures/wallpapers/computer_guy.jpg',
+        wallpaper = '~/Pictures/wallpapers/moon.png',
 
         top=bar.Bar(
             [
