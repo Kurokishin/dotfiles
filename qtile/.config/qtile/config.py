@@ -98,9 +98,9 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -- sset Master 5%+"), desc="Increase the volume"),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -- sset Master 5%-"), desc="Decrease the volume"),
     Key([], "XF86AudioMute", lazy.spawn("amixer -- sset Master toggle"), desc="Mute speakers"),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause player"),
-    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Skip to next"),
-    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl --player=mpv play-pause"), desc="Play/Pause player"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl --player=mpv next"), desc="Skip to next"),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl --player=mpv previous"), desc="Skip to previous"),
 
     # Custom keybindings
     Key([mod, "control"], "y", lazy.spawn(terminal + " -e ytfzf -s"), desc="Spawn youtube on the terminal"),
