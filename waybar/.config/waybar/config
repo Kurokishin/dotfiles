@@ -34,8 +34,7 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        //"format": "<span font='Font Awesome 6 Free Regular'>{}</span> {usage}% ",
-        "format": "{usage}% ",
+        "format": "<span font='Font Awesome 6 Free Regular'></span> {usage}%",
         "tooltip": false,
         "on-click": "alacritty -e htop"
     },
