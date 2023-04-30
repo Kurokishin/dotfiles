@@ -29,9 +29,10 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": " {:%I:%M}",
+        "format-alt": " {:%m-%d-%Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        
     },
     "cpu": {
         "format": "<span font='Font Awesome 6 Free Regular'></span> {usage}%",
