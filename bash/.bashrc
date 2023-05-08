@@ -3,7 +3,7 @@
 #
 
 # Exports
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
