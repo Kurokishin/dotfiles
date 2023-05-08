@@ -15,7 +15,7 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
