@@ -1,7 +1,7 @@
 # Imports
 import os
 from typing import List  # noqa: F401
-from libqtile import bar, layout, widget, extension
+from libqtile import bar, layout, widget, extension, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -232,6 +232,7 @@ screens = [
                 widget.Clock(
                         foreground=catppuccin_mocha["pink"],
                         format=' %a, %b %d',
+                        mouse_callbacks={'Button1': open_calendar}
                 ),
                 widget.Systray(
                     padding=3
@@ -269,6 +270,11 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+
+@hook.subscribe.client_managed
+def focus_specific_group(client):
+    if client.group.name == "4" and client.window.get_wm_class()[0] == "keepassxc":
+        client.group.focus(client)
 
 # Configuration variables
 auto_fullscreen = False 

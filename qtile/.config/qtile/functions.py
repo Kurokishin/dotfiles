@@ -51,5 +51,9 @@ def open_pavu(qtile):
 def open_htop(qtile):
     qtile.cmd_spawn(terminal + " -e htop")
 
+@lazy.function
+def open_calendar(qtile):
+    qtile.cmd_spawn(terminal + " --hold -e cal")
+
 def format_icon(icon):
     return '<span font="Font Awesome 6 Free Regular">{}</span>'.format(icon)
