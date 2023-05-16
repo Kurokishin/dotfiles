@@ -103,7 +103,7 @@ keys = [
     Key([], "XF86AudioPrev", lazy.spawn("playerctl --player=mpv previous"), desc="Skip to previous"),
 
     # Custom keybindings
-    Key([mod, "control"], "y", lazy.spawn(terminal + " -e ytfzf -s"), desc="Spawn youtube on the terminal"),
+    Key([mod, "control"], "y", lazy.spawn(terminal + " --hold -e ytfzf -s"), desc="Spawn youtube on the terminal"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Take screenshot of the selected area"),
 	Key([mod], "z", lazy.hide_show_bar(), desc="Toggle the bar"),
 
