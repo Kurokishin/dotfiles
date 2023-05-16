@@ -37,6 +37,13 @@ alias \
     autoremove='./.local/bin/autoremove.sh' \
     #autoremove='doas pacman -Rs $(pacman -Qtdq) && doas pacman -Sc' \
 	
+# Enable vi mode
+set -o vi
+
+# Clear terminal regardless of vi mode
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
+
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
