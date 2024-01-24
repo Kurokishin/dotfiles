@@ -204,7 +204,7 @@ extension_defaults = widget_defaults.copy()
 clock = widget.Clock()
 screens = [
     Screen(
-        wallpaper = f"{home}/Pictures/wallpapers/moon.png",
+        wallpaper = f"{home}/.dotfiles/qtile/.config/qtile/wallpapers/smiling_guy.jpg",
 
         top=bar.Bar(
             [
