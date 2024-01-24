@@ -1,7 +1,7 @@
 # Imports
 import os
 from typing import List  # noqa: F401
-from libqtile import bar, layout, widget, extension, hook
+from libqtile import bar, layout, widget, extension, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -32,6 +32,12 @@ gray = "#505050"
 pink = "#ffc0cb"
 purple = "#f3b9ff"
 catppuccin_mocha = color_palette.catppuccin
+
+# Checking the backend
+if qtile.core.name == "x11":
+    app_launcher = "rofi"
+elif qtile.core.name == "wayland":
+    app_launcher = "wofi"
 
 keys = [
     # Switch between monitors
@@ -113,9 +119,13 @@ keys = [
         Key([], "n", lazy.spawn("redshift -P -O 3000"), desc="Reduced blue light")
     ]),
     
-    # Rofi
-    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Show applications"),
-    Key([mod], "p", lazy.spawn("rofi -show window"), desc="Show running apps"),
+    # Rofi/Wofi
+    Key([mod] , "d", 
+        lazy.spawn(f"{app_launcher} -show drun").when(condition=qtile.core.name == "x11"),
+        lazy.spawn(f"{app_launcher} --show drun").when(condition=qtile.core.name == "wayland"),
+        desc="Show applications"
+    ),
+    Key([mod], "p", lazy.spawn(f"{app_launcher} -show window"), desc="Show running apps"),
     Key([mod, "control"], "x", lazy.spawn("/home/rafael/.local/bin/powermenu.sh"))
 ]
 
@@ -251,9 +261,6 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
-#dgroups_key_binder = None
-#dgroups_key_binder = simple_key_binder(mod) 
-dgroups_app_rules = []  # type: List
 follow_mouse_focus = False
 bring_front_click = "floating_only" 
 cursor_warp = False
