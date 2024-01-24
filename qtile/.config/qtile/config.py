@@ -14,16 +14,8 @@ mod = "mod4"
 terminal = guess_terminal()
 browser = "librewolf"
 
-# Pywal
-# colors = []
-# cache='/home/rafael/.cache/wal/colors'
-# def load_colors(cache):
-#     with open(cache, 'r') as file:
-#         for i in range(8):
-#             colors.append(file.readline().strip())
-#     colors.append('#ffffff')
-#     lazy.reload()
-# load_colors(cache)
+# Directories
+home = os.path.expandvars("$HOME")
 
 # Colors
 white = "#ffffff"
@@ -32,6 +24,17 @@ gray = "#505050"
 pink = "#ffc0cb"
 purple = "#f3b9ff"
 catppuccin_mocha = color_palette.catppuccin
+
+# Pywal
+# colors = []
+# cache=f"{home}/.cache/wal/colors"
+# def load_colors(cache):
+#     with open(cache, 'r') as file:
+#         for i in range(8):
+#             colors.append(file.readline().strip())
+#     colors.append('#ffffff')
+#     lazy.reload()
+# load_colors(cache)
 
 # Checking the backend
 if qtile.core.name == "x11":
@@ -126,7 +129,7 @@ keys = [
         desc="Show applications"
     ),
     Key([mod], "p", lazy.spawn(f"{app_launcher} -show window"), desc="Show running apps"),
-    Key([mod, "control"], "x", lazy.spawn("/home/rafael/.local/bin/powermenu.sh"))
+    Key([mod, "control"], "x", lazy.spawn(f"{home}/.local/bin/powermenu.sh"))
 ]
 
 #groups = [Group(i) for i in "123456789"]
@@ -201,12 +204,12 @@ extension_defaults = widget_defaults.copy()
 clock = widget.Clock()
 screens = [
     Screen(
-        wallpaper = '~/Pictures/wallpapers/moon.png',
+        wallpaper = f"{home}/Pictures/wallpapers/moon.png",
 
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(
-                    custom_icon_paths=[os.path.expanduser('~/.config/qtile/icons')],
+                    custom_icon_paths=[(f"{home}/.config/qtile/icons")],
                     scale=0.7
                 ),
                 widget.GroupBox(
