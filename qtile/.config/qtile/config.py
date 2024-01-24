@@ -82,10 +82,10 @@ keys = [
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
-    Key([mod, "shift"], "k", move_window("k"), desc="Move floating window up"),
-    Key([mod, "shift"], "j", move_window("j"), desc="Move floating window down"),
-    Key([mod, "shift"], "h", move_window("h"), desc="Move floating window left"),
-    Key([mod, "shift"], "l", move_window("l"), desc="Move floating window right"),
+    Key([mod, "shift"], "k", move_floating_window("k"), desc="Move floating window up"),
+    Key([mod, "shift"], "j", move_floating_window("j"), desc="Move floating window down"),
+    Key([mod, "shift"], "h", move_floating_window("h"), desc="Move floating window left"),
+    Key([mod, "shift"], "l", move_floating_window("l"), desc="Move floating window right"),
     Key([mod, "control"], "space", lazy.window.toggle_floating(), desc="Toggle floating mode"),
     Key([mod, "control"], "c", toggle_floating(center=True), desc="Toggle floating and center"),
 
@@ -138,7 +138,7 @@ groups = [
     Group("2", label="II"),
     Group("3", label="III"),
     Group("4", label="IV", matches=[Match(wm_class=["keepassxc"])]),
-    Group("5", label="", matches=[Match(wm_class=["microsoft teams - preview"])]),
+    Group("5", label=""),
     Group("6", label="VI"),
     Group("7", label="VII"),
     Group("8", label="", matches=[Match(wm_class=["mpv"])]),

@@ -4,7 +4,7 @@ from libqtile.utils import guess_terminal
 terminal = guess_terminal()
 
 @lazy.function
-def move_window(qtile, direction, x_step=32, y_step=32):
+def move_floating_window(qtile, direction, x_step=32, y_step=32):
     layout = qtile.current_layout
     window = qtile.current_window
     if window.floating:
