@@ -99,17 +99,17 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # Audio control (run 'xev' to know the name of a key)
-    Key([mod, "control"], "KP_Add", lazy.spawn("amixer -- sset Master 5%+"), desc="Increase the volume"),
-    Key([mod, "control"], "KP_Subtract", lazy.spawn("amixer -- sset Master 5%-"), desc="Decrease the volume"),
-    Key([mod, "control"], "KP_Multiply", lazy.spawn("amixer -- sset Master 30%"), desc="Set a default value for the volume"),
+    Key([mod, "control"], "KP_Add", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), desc="Increase the volume"),
+    Key([mod, "control"], "KP_Subtract", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), desc="Decrease the volume"),
+    Key([mod, "control"], "KP_Multiply", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%"), desc="Set a default value for the volume"),
 
     # Multimedia keys
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -- sset Master 5%+"), desc="Increase the volume"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -- sset Master 5%-"), desc="Decrease the volume"),
-    Key([], "XF86AudioMute", lazy.spawn("amixer -- sset Master toggle"), desc="Mute speakers"),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl --player=mpv play-pause"), desc="Play/Pause player"),
-    Key([], "XF86AudioNext", lazy.spawn("playerctl --player=mpv next"), desc="Skip to next"),
-    Key([], "XF86AudioPrev", lazy.spawn("playerctl --player=mpv previous"), desc="Skip to previous"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), desc="Increase the volume"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), desc="Decrease the volume"),
+    Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), desc="Mute speakers"),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause player"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Skip to next"),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),
 
     # Custom keybindings
     Key([mod, "control"], "y", lazy.spawn(terminal + " --hold -e ytfzf -s"), desc="Spawn youtube on the terminal"),
