@@ -7,7 +7,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile.dgroups import simple_key_binder
 from qtile_extras import widget
-from qtile_extras.widget.decorations import PowerLineDecoration
+from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 from functions import *
 import color_palette
 
@@ -199,11 +199,38 @@ widget_defaults = dict(
     fontsize=12,
     padding=6,
     foreground=catppuccin_mocha["text"],
-    background=catppuccin_mocha["crust"],
+    #background=catppuccin_mocha["crust"],
 )
 extension_defaults = widget_defaults.copy()
 
-clock = widget.Clock()
+powerline_left = {
+    "decorations": [
+        PowerLineDecoration(
+            path="rounded_left",
+        )
+    ]
+}
+
+powerline_right = {
+    "decorations": [
+        PowerLineDecoration(
+            path="rounded_right",
+        )
+    ]
+}
+
+decoration_group = {
+    "decorations": [
+        RectDecoration(colour=catppuccin_mocha["crust"], radius=10, filled=True, group=True, padding_y=2, padding_x=1)
+    ]
+}
+
+decoration_systray = {
+    "decorations": [
+        RectDecoration(colour=catppuccin_mocha["crust"], radius=10, filled=True, group=True, clip=True)
+    ]
+}
+
 screens = [
     Screen(
         wallpaper = f"{home}/.dotfiles/qtile/.config/qtile/wallpapers/smiling_guy.jpg",
@@ -221,40 +248,51 @@ screens = [
                     active=catppuccin_mocha["text"],
                     inactive=catppuccin_mocha["overlay0"],
                     disable_drag=True,
-                    hide_unused=True
+                    hide_unused=True,
+                    **decoration_group
                 ),
-                widget.Spacer(length=bar.STRETCH),
+                widget.Spacer(),
                 widget.Clock(
-                        foreground=catppuccin_mocha["peach"],
-                        format=' %I:%M %p'
+                    foreground=catppuccin_mocha["peach"],
+                    format=' %I:%M %p',
+                    **decoration_group
                 ),
                 widget.Spacer(),
                 widget.CPU(
                     foreground=catppuccin_mocha["mauve"],
                     format=format_icon('') + ' {load_percent}%',
-                    mouse_callbacks={'Button1': open_htop}
+                    mouse_callbacks={'Button1': open_htop},
+                    **decoration_group
                 ),
                 widget.ThermalSensor(
                     foreground=catppuccin_mocha["red"],
                     tag_sensor='Tctl',
-                    fmt = format_icon('') + ' {}'
+                    fmt = format_icon('') + ' {}',
+                    **decoration_group
                 ),
                 widget.Volume(
                     foreground=catppuccin_mocha["green"],
                     fmt=format_icon('墳') + ' {}',
-                    mouse_callbacks={'Button1': open_pavu}
+                    mouse_callbacks={'Button1': open_pavu},
+                    **decoration_group
                 ),
+                widget.Spacer(length=1),
                 widget.Clock(
-                        foreground=catppuccin_mocha["pink"],
-                        format=' %a, %b %d',
-                        mouse_callbacks={'Button1': open_calendar}
+                    foreground=catppuccin_mocha["pink"],
+                    format=' %a, %b %d',
+                    mouse_callbacks={'Button1': open_calendar},
+                    **decoration_group
                 ),
+                widget.Spacer(length=1),
                 widget.Systray(
-                    padding=3
+                    padding=3,
+                    **decoration_group
                 ),
             ],
-            # Bar height
-            20,
+            # Bar size
+            size=25,
+            # Transparency
+            background="#00000000"
             ),
     ),
 ]
