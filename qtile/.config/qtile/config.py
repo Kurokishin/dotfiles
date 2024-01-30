@@ -5,7 +5,6 @@ from libqtile import bar, layout, widget, extension, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-from libqtile.dgroups import simple_key_binder
 from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 from functions import *
@@ -185,7 +184,7 @@ layouts = [
 #     layout.Stack(num_stacks=2),
 #     layout.Bsp(),
 #     layout.Matrix(),
-#    layout.MonadTall(**layout_theme),
+#     layout.MonadTall(**layout_theme),
 #     layout.MonadWide(),
 #     layout.RatioTile(),
 #     layout.Tile(),
@@ -320,11 +319,6 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
-
-@hook.subscribe.client_managed
-def focus_specific_group(client):
-    if client.group.name == "4" and client.window.get_wm_class()[0] == "keepassxc":
-        client.group.focus(client)
 
 # Configuration variables
 auto_fullscreen = False 
