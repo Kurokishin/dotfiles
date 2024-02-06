@@ -220,13 +220,7 @@ powerline_right = {
 
 decoration_group = {
     "decorations": [
-        RectDecoration(colour=catppuccin_mocha["crust"], radius=10, filled=True, group=True, padding_y=2, padding_x=1)
-    ]
-}
-
-decoration_systray = {
-    "decorations": [
-        RectDecoration(colour=catppuccin_mocha["crust"], radius=10, filled=True, group=True, clip=True)
+        RectDecoration(colour=catppuccin_mocha["crust"], radius=10, filled=True, group=True, clip=True, padding_y=2, padding_x=1)
     ]
 }
 
@@ -238,8 +232,10 @@ screens = [
             [
                 widget.CurrentLayoutIcon(
                     custom_icon_paths=[(f"{home}/.config/qtile/icons")],
-                    scale=0.7
+                    scale=0.7,
+                    **decoration_group
                 ),
+                widget.Spacer(length=1),
                 widget.GroupBox(
                     highlight_method='line',
                     highlight_color=catppuccin_mocha["base"],
@@ -285,7 +281,6 @@ screens = [
                 widget.Spacer(length=1),
                 widget.Systray(
                     padding=3,
-                    **decoration_group
                 ),
             ],
             # Bar size
