@@ -1,5 +1,5 @@
 set adjust-open "best-fit"
-set selection-clipboard clipboard
+# set selection-clipboard clipboard
 set guioptions ""
 
 set recolor true
