@@ -16,6 +16,7 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
