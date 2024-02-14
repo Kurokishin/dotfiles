@@ -31,9 +31,6 @@ alias \
     p='doas pacman' \
     anki='anki --no-sandbox' \
     yt='ytfzf' \
-    dorama='dra-cla' \
-    day='redshift -P -O 6500' \
-    night='redshift -P -O 4000' \
     autoremove='./.local/bin/autoremove.sh' \
     #autoremove='doas pacman -Rs $(pacman -Qtdq) && doas pacman -Sc' \
 	
