@@ -226,7 +226,7 @@ decoration_group = {
 
 screens = [
     Screen(
-        wallpaper = f"{home}/.dotfiles/qtile/.config/qtile/wallpapers/smiling_guy.jpg",
+        wallpaper = f"{home}/.dotfiles/.config/qtile/wallpapers/smiling_guy.jpg",
 
         top=bar.Bar(
             [
@@ -249,7 +249,7 @@ screens = [
                 widget.Spacer(),
                 widget.Clock(
                     foreground=catppuccin_mocha["peach"],
-                    format=' %I:%M %p',
+                    format='󰥔 %I:%M %p',
                     **decoration_group
                 ),
                 widget.Spacer(),
@@ -267,14 +267,14 @@ screens = [
                 ),
                 widget.Volume(
                     foreground=catppuccin_mocha["green"],
-                    fmt=format_icon('墳') + ' {}',
+                    fmt=format_icon('') + ' {}',
                     mouse_callbacks={'Button1': open_pavu},
                     **decoration_group
                 ),
                 widget.Spacer(length=1),
                 widget.Clock(
                     foreground=catppuccin_mocha["pink"],
-                    format=' %a, %b %d',
+                    format='  %a, %b %d',
                     mouse_callbacks={'Button1': open_calendar},
                     **decoration_group
                 ),
