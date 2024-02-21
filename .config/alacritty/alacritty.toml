@@ -4,7 +4,7 @@ import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
 size = 10.0
 
 [font.normal]
-family = "JetBrains Mono"
+family = "JetBrains Mono Nerd Font"
 style = "Bold"
 
 [[keyboard.bindings]]
